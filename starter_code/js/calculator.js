@@ -1,3 +1,6 @@
+
+
+
 $(document).ready(function()
 {
 	var state = null;
@@ -28,7 +31,7 @@ $(document).ready(function()
 
 	function isOneOperandOperator(n) 
 	{
-  		return n == "SQRT" || n == "log";
+  		return n == "SQRT" || n == "log" || n == "tan";
 	}
 
 	function isTwoOperandOperator(n) 
@@ -77,6 +80,13 @@ $(document).ready(function()
 					$('#question').prepend("sqrt(");
 					$('#question').append(")");
 				}
+				
+				else if (operator == "tan")
+				{
+					answer = tan(first_operand);
+					$('#question').prepend("tan(");
+					$('#question').append(")");
+				}
 
 				else if (operator == "log")
 				{
@@ -118,7 +128,7 @@ $(document).ready(function()
 					answer = add(parseInt(first_operand), parseInt(second_operand));	
 				else if (operator == "^")
 					answer = power(parseInt(first_operand), parseInt(second_operand));	
-
+					
 				$('#question').append(" =");
 				$('#answer').append(answer).hide().fadeIn(1000);
 				state = 2;
